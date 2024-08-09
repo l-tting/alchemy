@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+     {% for booking in bookings%}
+     <p>
+        {{booking.course.name}} booked by {{booking.student.name}}
+     </p>
+     {% endfor %}
+
+        <form action="/bookings" method="post">
+            <select name="course" >
+                <option value="">Select Course</option>
+                {% for course in courses%}
+                <option value="{{course.id}}">{{course.name}}</option>
+                {% endfor %}
+            </select>
+            <select name="student" >
+                <option value="">Select Student</option>
+                {% for student in students%}
+                <option value="{{student.id}}">{{student.name}}</option>
+                {% endfor %}
+            </select>
+            <select name="status" >
+                <option >Completion Status</option>
+                <option value="True">Active</option>
+                <option value="False">Disabled</option>
+            </select>
+            <input type="submit" placeholder="Book Student">
+        </form>
+    </div>
+</body>
+</html>

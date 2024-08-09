@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <p>COURSES</p>
+        <p>
+            {% for course in courses%}
+            {{course.name}}
+            {% endfor %}
+        </p>
+        <form action="/courses" method="post">
+            <input type="text" name="name" placeholder="Course Name"><br>
+            <textarea name="description" cols="30" rows="10" placeholder="Course Description"></textarea><br>
+            <input type="number" name="cost" placeholder="Cost"><br>
+            <input type="date" name="start_date">
+            <input type="date" name="end_date"><br>
+            <select name="status">
+                <option value="True">Active</option>
+                <option value="False">Disabled</option>
+            </select><br>
+
+            <input type="submit" value="Add Course">
+        </form>
+    </div>
+</body>
+
+</html>
