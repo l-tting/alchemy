@@ -2,9 +2,11 @@ from flask import Flask,render_template,request,redirect,url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 from datetime import date
+
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:6979@localhost/students_system'
+
 db = SQLAlchemy(app)
 
 
@@ -94,9 +96,6 @@ def bookings():
         db.session.add(booking)
         db.session.commit()
         return redirect(url_for('bookings'))
-
-
-
 
 
 with app.app_context():

@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="container">
-     {% for booking in bookings%}
+     {% for booking in bookings %}
      <p>
         {{booking.course.name}} booked by {{booking.student.name}}
      </p>
@@ -16,13 +16,13 @@
         <form action="/bookings" method="post">
             <select name="course" >
                 <option value="">Select Course</option>
-                {% for course in courses%}
+                {% for course in courses %}
                 <option value="{{course.id}}">{{course.name}}</option>
                 {% endfor %}
             </select>
             <select name="student" >
                 <option value="">Select Student</option>
-                {% for student in students%}
+                {% for student in students %}
                 <option value="{{student.id}}">{{student.name}}</option>
                 {% endfor %}
             </select>
